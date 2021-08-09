@@ -8,9 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "items")
-public class Item {
-	
+@Table(name = "todos")
+public class Todo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -21,11 +20,10 @@ public class Item {
 	@Column(name = "completed")
 	private boolean completed;
 	
-	public Item() {
-		
+	public Todo() {
 	}
 	
-	public Item(String task, boolean completed) {
+	public Todo(String task, boolean completed) {
 		super();
 		this.task = task;
 		this.completed = completed;
