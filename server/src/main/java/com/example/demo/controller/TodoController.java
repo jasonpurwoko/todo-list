@@ -38,7 +38,7 @@ public class TodoController {
 	}
 	
 	@PutMapping("/todos/{id}")
-	public ResponseEntity<Todo> updateEmployee(@PathVariable Long id, @RequestBody Todo todoDetails){
+	public ResponseEntity<Todo> updateTodo(@PathVariable Long id, @RequestBody Todo todoDetails){
 		Todo todo = todoRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Todo not exist with id :" + id));
 		
@@ -53,7 +53,7 @@ public class TodoController {
 	@DeleteMapping("/todos/{id}")
 	public ResponseEntity<Map<String, Boolean>> deleteTodo(@PathVariable Long id) {
 		Todo item = todoRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+				.orElseThrow(() -> new ResourceNotFoundException("Todo not exist with id :" + id));
 		
 		todoRepository.delete(item);
 		Map<String, Boolean> response = new HashMap<>();
